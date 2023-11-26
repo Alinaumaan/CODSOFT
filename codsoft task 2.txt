@@ -1,0 +1,29 @@
+
+public class Codsofttask2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter your marks in math out of 100:");
+        float math = sc.nextFloat();
+        System.out.println("enter your marks in english out of 100:");
+        float english = sc.nextFloat();
+        System.out.println("enter your marks in java out of 100:");
+        float java = sc.nextFloat();
+        System.out.println("enter your marks in physics out of 100:");
+        float physics = sc.nextFloat();
+        float total =(math+english+java+physics);
+        System.out.println("your total marks are:"+total);
+        float percentage = (total/4);
+        System.out.println("your percentage is:"+percentage);
+        if(percentage>=80){
+            System.out.println("Grade A");
+        } else if (percentage>=60) {
+            System.out.println("Grade B");
+
+        }
+        else {
+            System.out.println("Grade C");
+        }
+
+
+    }
+}

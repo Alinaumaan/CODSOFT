@@ -1,0 +1,89 @@
+package Ali;
+
+import java.util.Scanner;
+
+class Atmmachine {
+    float balance,debit,credit;
+   public void setAccountNo() {
+       int accountNo = 76548900;
+       int PIN = 2929;
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter your account number:");
+       int accountnumber = sc.nextInt();
+       if (accountnumber == accountNo) {
+           System.out.println("Enter your PIN:");
+       } else {
+           System.out.println("Incorrect Account Number!");
+           setAccountNo();
+       }
+
+       int enteredpin = sc.nextInt();
+       if (enteredpin == PIN) {
+           menu();
+       } else {
+           System.out.println("Incorrect PIN");
+       }
+   }
+        public void menu(){
+            System.out.println("Select option 1 for Debit");
+            System.out.println("Select option 2 for Credit");
+            System.out.println("Select option 3 for Balance ");
+            System.out.println("Select option 4 for Exit");
+            System.out.println("Select an option");
+            Scanner sc = new Scanner(System.in);
+            int opt = sc.nextInt();
+            if(opt == 1){
+                withdrawmoney();
+            } else if (opt == 2) {
+                depositmoney();
+            }
+            else if(opt == 3){
+                checkbalance();
+            }
+            else if (opt == 4) {
+                return;
+            }
+            else {
+                System.out.println("Enter a valid option");
+            }
+
+
+
+        }
+        public void withdrawmoney(){
+            System.out.println("Enter amount to withdraw:");
+            Scanner sc = new Scanner(System.in);
+            float amount = sc.nextFloat();
+            if(amount<=balance){
+                balance = balance - amount;
+                System.out.println("Withdrawal Succesfull");
+            }
+            else {
+                System.out.println("Insufficient balance");
+            }
+            menu();
+        }
+        public void depositmoney(){
+            System.out.println("Enter amount to deposit:");
+            Scanner sc = new Scanner(System.in);
+            float amount = sc.nextFloat();
+            balance = balance+amount;
+            System.out.println("Money deposited successfully");
+            menu();
+
+        }
+        public void checkbalance(){
+            System.out.println("Balance:"+balance);
+            menu();
+        }
+
+    }
+
+    public class Atm{
+
+    public static void main(String[] args) {
+        Atmmachine obj = new Atmmachine();
+        obj.setAccountNo();
+    }
+
+    }
